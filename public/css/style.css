@@ -1,0 +1,117 @@
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #f0f2f5;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 430px;
+    height: 520px;
+}
+.background .shape {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape:first-child {
+    background: linear-gradient(#ffafbd, #ffc3a0);
+    left: -80px;
+    top: -80px;
+}
+.shape:last-child {
+    background: linear-gradient(to right, #84fab0, #8fd3f4);
+    right: -30px;
+    bottom: -80px;
+}
+.containers {
+    height: 520px;
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.95);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+    /* padding: 50px 35px; */
+}
+form h3 {
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+    color: #333;
+}
+label {
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    color: #555;
+}
+input {
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #333;
+}
+input::placeholder {
+    color: #999;
+}
+button {
+    margin-top: 50px;
+    width: 100%;
+    background-color: #4c6ef5;
+    color: white;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+button:hover {
+    background-color: #375de2;
+}
+.social {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.social div {
+    width: 48%;
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f2f5;
+    border-radius: 5px;
+    color: #333;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+.social div:hover {
+    background-color: #e0e4e7;
+}
+.social i {
+    margin-right: 8px;
+}
