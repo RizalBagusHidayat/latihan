@@ -32,7 +32,11 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/dashboard', [dashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/daftarbarang', [daftarbarangController::class, 'index'])->name('daftarbarang');
-Route::post('/datarbarang/store', [daftarbarangController::class, 'store'])->name('daftarbarang.store');
+Route::post('/daftarbarang/store', [daftarbarangController::class, 'store'])->name('daftarbarang.store');
+// Route::post('/daftarbarang/delete', [daftarbarangController::class, 'delete'])->name('daftarbarang.delete');
+Route::delete('/daftarbarang/{id_barang}', [daftarbarangController::class, 'delete'])->name('daftarbarang.delete');
+Route::post('/daftarbarang/edit', [daftarbarangController::class, 'edit'])->name('daftarbarang.edit');
+Route::get('/daftarbarang/{id}', [daftarbarangController::class, 'edit_api'])->name('daftarbarang.edit_api');
 
 Route::get('/barangmasuk', [barangmasukController::class, 'index'])->name('barangmasuk');
 Route::get('/barangkeluar', [barangkeluarController::class, 'index'])->name('barangkeluar');

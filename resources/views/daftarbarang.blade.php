@@ -16,8 +16,8 @@
         </Button>
     </div>
     <div class="card">
-        <table class="table-auto w-full text-xl">
-            <thead class=" ">
+        <table class="table-auto border w-full text-xl">
+            <thead class="border ">
                 <tr class="">
                     <th class="py-4 rounded-tl-md">No</th>
                     <th>ID Barang</th>
@@ -28,10 +28,10 @@
                     <th class="py-4 rounded-tr-md"></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="">
                 @php $i = 1 @endphp
                 @forelse ($barang as $item)
-                    <tr class="">
+                    <tr class="border">
                         <td class="py-4">{{ $i++ }}</td>
                         <td>{{ $item->id_barang }}</td>
                         <td>{{ $item->nama_barang }}</td>
@@ -39,16 +39,12 @@
                         <td>{{ $item->stok }}</td>
                         <td>{{ $satuan[($item->satuan_id) - 1]->satuan }}</td>
                         <td class="w-full flex gap-4 justify-center items-center py-4">
-                            <a href="
-                            {{-- {{ route('barang.edit', $item->id) }} --}}
-                                " 
+                            <button onclick="openEditModal({{$item->id}})" 
                                class="text-white py-3 px-8 bg-blue-600 rounded-lg flex justify-center items-center hover:bg-blue-700">
                                 <i class="fas fa-edit"></i>
-                            </a> 
-                        
-
+                            </button> 
                             <form action="
-                            {{-- {{ route('barang.destroy', $item->id) }} --}}
+                            {{ route('daftarbarang.delete', $item->id_barang) }}
                              " method="POST" class="inline-block hover">
                                 @csrf
                                 @method('DELETE')
@@ -69,4 +65,5 @@
     </div>
 </section>
 @include('daftarbarang.tambah')
+@include('daftarbarang.edit')
 @endsection
