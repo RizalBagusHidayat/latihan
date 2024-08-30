@@ -20,7 +20,7 @@
             <thead class="border ">
                 <tr class="">
                     <th class="py-4 rounded-tl-md">No</th>
-                    <th>ID Barang</th>
+                    <th>Kode Barang</th>
                     <th>Nama Barang</th>
                     <th>Jenis Barang</th>
                     <th>Stok</th>
@@ -28,23 +28,24 @@
                     <th class="py-4 rounded-tr-md"></th>
                 </tr>
             </thead>
+            
             <tbody class="">
                 @php $i = 1 @endphp
-                @forelse ($barang as $item)
+                @forelse ($barang['data'] as $item)
                     <tr class="border">
                         <td class="py-4">{{ $i++ }}</td>
-                        <td>{{ $item->id_barang }}</td>
-                        <td>{{ $item->nama_barang }}</td>
-                        <td>{{ $jenisbarang[($item->jenis_id) - 1]->jenis_barang }}</td>
-                        <td>{{ $item->stok }}</td>
-                        <td>{{ $satuan[($item->satuan_id) - 1]->satuan }}</td>
+                        <td>{{ $item['id_barang'] }}</td>
+                        <td>{{ $item['nama_barang'] }}</td>
+                        <td>{{ $jenisbarang['data'][($item['jenis_id']) - 1]['jenis_barang'] }}</td>
+                        <td>{{ $item['stok'] }}</td>
+                        <td>{{ $satuan['data'][($item['satuan_id']) - 1]['satuan'] }}</td>
                         <td class="w-full flex gap-4 justify-center items-center py-4">
-                            <button onclick="openEditModal({{$item->id}})" 
+                            <button onclick="openEditModal({{$item['id']}})" 
                                class="text-white py-3 px-8 bg-blue-600 rounded-lg flex justify-center items-center hover:bg-blue-700">
                                 <i class="fas fa-edit"></i>
                             </button> 
                             <form action="
-                            {{ route('daftarbarang.delete', $item->id_barang) }}
+                            {{ route('daftarbarang.destroy', $item['id_barang']) }}
                              " method="POST" class="inline-block hover">
                                 @csrf
                                 @method('DELETE')

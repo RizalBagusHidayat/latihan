@@ -1,7 +1,7 @@
 @extends ('layouts.main')
 
 @section('main-section')
-<section class="daftarbarang">
+{{-- <section class="daftarbarang">
     <div class="header">
         <h1>Satuan</h1>
     </div>
@@ -46,5 +46,5 @@
             <button>View Details</button>
         </div>
     </div>
-</section>
+</section> --}}
 @endsection

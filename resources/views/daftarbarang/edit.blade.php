@@ -3,7 +3,7 @@
         <div class="flex justify-between items-center pb-3">
             <p class="text-2xl font-bold">Edit Barang Barang</p>
         </div>
-        <form action="{{route('daftarbarang.edit')}}" method="POST">
+        <form action="{{route('daftarbarang.update')}}" method="POST">
             @csrf
             <input type="hidden" id="hidden-item-id">
             <div class="mb-4">
@@ -20,8 +20,8 @@
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="jenis_barang">Jenis Barang</label>
                 <select name="jenis_barang"  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="edit_jenis_barang" id="edit_jenis_barang">
-                    @foreach ($jenisbarang as $items)
-                        <option value="{{ $items->id }}">{{ $items->jenis_barang }}</option>
+                    @foreach ($jenisbarang['data'] as $item)
+                        <option value="{{ $item['id'] }}">{{ $item['jenis_barang'] }}</option>
                     @endforeach
                 </select>
                 
@@ -33,8 +33,8 @@
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="satuan">Satuan</label>
                 <select name="satuan" id="edit_satuan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                    @foreach ($satuan as $item)
-                        <option value="{{ intval($item->id)}}">{{ $item->satuan }}</option>
+                    @foreach ($satuan['data'] as $item)
+                        <option value="{{ intval($item['id'])}}">{{ $item['satuan'] }}</option>
                     @endforeach
                 </select>
             </div>
@@ -52,7 +52,7 @@
         document.getElementById('EditBarangModal').classList.remove('hidden');
 
         // Ambil data barang dari server menggunakan Fetch API
-        fetch(`/daftarbarang/${id}`)
+        fetch(`/daftarbarang/update/${id}`)
             .then(response => response.json())
             .then(data => {
                 // Isi form di modal dengan data yang diterima

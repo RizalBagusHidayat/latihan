@@ -16,8 +16,9 @@
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="jenis_barang">Jenis Barang</label>
                 <select name="jenis_barang" id="jenis_barang" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                    @foreach ($jenisbarang as $item)
-                        <option value="{{ $item->id }}">{{ $item->jenis_barang }}</option>
+                    <option value="" hidden>Pilih Jenis Barang</option>
+                    @foreach ($jenisbarang['data'] as $item)
+                        <option value="{{ $item['id'] }}">{{ $item['jenis_barang'] }}</option>
                     @endforeach
                 </select>
             </div>
@@ -28,8 +29,9 @@
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="satuan">Satuan</label>
                 <select name="satuan" id="satuan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                    @foreach ($satuan as $item)
-                        <option value="{{ $item->id }}">{{ $item->satuan }}</option>
+                    <option value="" hidden>Pilih Satuan</option>
+                    @foreach ($satuan['data'] as $item)
+                        <option value="{{ $item['id'] }}">{{ $item['satuan'] }}</option>
                     @endforeach
                 </select>
             </div>

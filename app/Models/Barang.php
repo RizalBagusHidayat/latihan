@@ -18,4 +18,8 @@ class Barang extends Model
     {
         return $this->belongsTo(JenisBarang::class, 'jenis_barang_id');
     }
+    public function satuan()
+    {
+        return $this->belongsTo(satuan::class, 'satuan_id');
+    }
 }
